@@ -63,3 +63,13 @@ docker exec -it <container ID> npm run test
 Configure the docker-compose.yml to run the test in a secondary container named tests.
 
 docker-compose up --build
+
+# Deployment
+
+$ docker build -f deployment/Dockerfile .
+
+Nginx loadbalancer default poty is 80. We need to map the ports in order to use nginx to serve static files.
+
+$ docker run -p 8080:80 <image id>
+
+Visit the app at http://localhost:8080/.

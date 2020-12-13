@@ -31,6 +31,8 @@ $ docker build -f Dockerfile.dev .
 
 ## Using volumes to get the local changes in filesystem to be propagated inside the containers.
 
+docker run <image id>
+
 docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <container id>
 $ docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app d5f67b4739b9
 
@@ -46,3 +48,18 @@ Visit in the browser: http://localhost:3000
 ## Build and run the app
 
 $ docker-compose up --build
+
+# Testing during development
+
+# Run a test inide a running container
+
+Start up a container and run tests inside that container.
+docker run <image ID>
+In another terminal:
+docker exec -it <container ID> npm run test
+
+# Using docker-compose cli
+
+Configure the docker-compose.yml to run the test in a secondary container named tests.
+
+docker-compose up --build

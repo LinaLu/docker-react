@@ -31,14 +31,16 @@ $ docker build -f Dockerfile.dev .
 
 ## Using volumes to get the local changes in filesystem to be propagated inside the containers.
 
-docker run <image id>
+$ docker run <image id>
 
-docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <container id>
+$ docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <container id>
+
 $ docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app d5f67b4739b9
 
 ## Start a container in interactive mode
 
 $ docker run -it -p <local machine port>:<containers port> <CONTAINER_ID>
+  
 $ docker run -it -p 3000:3000 <8e987b008902>
 
 Visit in the browser: http://localhost:3000

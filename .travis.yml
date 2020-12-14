@@ -1,0 +1,10 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t linalu/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run linalu/docker-react npm run test -- -- coverage

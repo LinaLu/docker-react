@@ -40,7 +40,7 @@ $ docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app d5f67b4739b9
 ## Start a container in interactive mode
 
 $ docker run -it -p <local machine port>:<containers port> <CONTAINER_ID>
-  
+
 $ docker run -it -p 3000:3000 <8e987b008902>
 
 Visit in the browser: http://localhost:3000
@@ -75,3 +75,8 @@ Nginx loadbalancer default poty is 80. We need to map the ports in order to use 
 $ docker run -p 8080:80 <image id>
 
 Visit the app at http://localhost:8080/.
+
+# Travis
+
+The CI setup is trigger everytime we push to the github repo.
+The output from the build would be available at https://travis-ci.com.
